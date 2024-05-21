@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -20,17 +19,17 @@ import lombok.Data;
 @Data
 public class Company {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String name;
-	private String founder;
-	private String logo;
-	@JsonFormat(pattern = "dd/MM/yyyyy")
-	private LocalDate foundationDate;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private String founder;
+    private String logo;
+    @JsonFormat(pattern = "dd/MM/yyyy")
+    private LocalDate foundationDate;
 
-	@OneToMany(fetch = FetchType.LAZY,cascade= {CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REMOVE})
-	@JoinColumn(name="id_company",referencedColumnName = "id")
-	private List<WebSite> websites;
-	
+    @OneToMany(fetch = FetchType.LAZY, cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE })
+    @JoinColumn(name = "id_company", referencedColumnName = "id")
+    private List<WebSite> webSites;
+
 }

@@ -24,7 +24,7 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public Company create(final Company company) {
-        company.getWebsites().forEach(webSite -> {
+        company.getWebSites().forEach(webSite -> {
 
             if (Objects.isNull(webSite.getCategory())) {
                 webSite.setCategory(Category.NONE);
